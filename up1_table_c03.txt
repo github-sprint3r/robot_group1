@@ -1,0 +1,24 @@
+*** Setting ***
+Library     Selenium2Library
+Suite Setup    Open Browser    http://up1-table.herokuapp.com/
+Suite Teardown    Close Browser
+
+*** Variable ***
+
+
+*** Test cases ***
+Test header of table
+	[Template]    Test header of table
+	1        First Name
+	2        Last Name
+	3        Job Title
+	4        Birthdate
+	5        Status
+
+
+
+*** Keyword ****
+Test header of table
+	[Arguments]    ${COL}    ${COLNAME}
+	Maximize Browser Window
+	Table Cell Should Contain   xpath=//div[@id='demo']/table    1    ${COL}    ${COLNAME}
