@@ -1,0 +1,29 @@
+*** Settings ***
+#Documentation    ค้นหาจาก google
+Library    Selenium2Library
+Test Teardown     before closed
+
+*** Variables ***
+${URL}    http://up1-table.herokuapp.com
+${CURRENTPAGE}    1
+
+
+*** Testcases ***
+
+##===== template=========
+
+current_page_check
+
+	Open Browser    ${URL}
+
+
+
+
+
+
+
+*** Keywords ***
+
+before closed
+	Set Selenium Speed    5 second
+	Close All Browsers
