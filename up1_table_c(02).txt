@@ -11,4 +11,5 @@ ${URL}    http://up1-table.herokuapp.com/
     Open Browser    http://up1-table.herokuapp.com/
     Title Should Be    Demo
     Xpath Should Match X Times   //tbody/tr[@style='display: table-row;']    3   
+    
 *** Keywords ***
