@@ -12,10 +12,26 @@ ${CURRENTPAGE}    1
 
 ##===== template=========
 
-current_page_check
+current_page1_check
 
 	Open Browser    ${URL}
 	Element Text Should Be     xpath=//li[@class='footable-page active']    1    ${CURRENTPAGE}
+
+	${getval}    Get Element Attribute      xpath=//li[@class='footable-page active']/a@href
+	Should Be Equal    ${URL}/\#    ${getval}
+	#Element Text Should Be     xpath=//li[@class='footable-page active']/a    \#    ${getval}
+
+	${getvaldisable1}    Get Element Attribute     xpath=//li[@class='footable-page-arrow disabled']/a@data-page
+
+	${getvaldisable2}    Get Element Attribute     xpath=//li[@class='footable-page-arrow disabled'][2]/a@data-page
+
+	Should Be Equal    first    ${getvaldisable1}
+	Should Be Equal    prev    ${getvaldisable2}
+
+	Page Should Contain Link    xpath=//li[@class='footable-page-arrow'][1]/a     contains
+	Page Should Contain Link    xpath=//li[@class='footable-page-arrow'][2]/a     contains
+
+	Click Element     xpath=//li[@class='footable-page-arrow'][1]/a
 
 
 
