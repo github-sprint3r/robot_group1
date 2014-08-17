@@ -1,0 +1,14 @@
+*** Setting ***
+Library    Selenium2Library
+
+*** Variables ***
+${UrlUT}    http://up1-table.herokuapp.com/
+${ElementUT}    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[4]/a
+
+*** Testcases ***
+Paging Begin Page 2
+    Open Browser  ${UrlUT}
+    Wait Until Page Contains Element  ${ElementUT}
+    Click Element  ${ElementUT}
+
+*** Keywords ***
