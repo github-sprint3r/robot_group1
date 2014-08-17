@@ -1,0 +1,19 @@
+*** Setting ***
+Library     Selenium2Library
+
+*** Variable ***
+
+
+*** Test cases ***
+Test header of table
+	Open Browser    http://up1-table.herokuapp.com/
+	Maximize Browser Window
+	Table Cell Should Contain   xpath=//div[@id='demo']/table    1    1    First Name
+	Table Cell Should Contain   xpath=//div[@id='demo']/table    1    2    Last Name
+	Table Cell Should Contain    xpath=//div[@id='demo']/table   1    3    Job Title
+	Table Cell Should Contain   xpath=//div[@id='demo']/table    1    4    Birthdate
+	Table Cell Should Contain   xpath=//div[@id='demo']/table    1    5    Status
+	Close Browser
+
+
+*** Keyword ****
