@@ -3,15 +3,13 @@ Documentation    ทดสอบการแสดงผลของ UP1 Table
 Library    Selenium2Library
 Test Teardown    Close All Browsers
 
-
 *** Variables ***
 ${URL}    http://up1-table.herokuapp.com/
-${TOTAL}    11
 
 *** Testcases ***
-ทดสอบการแสดงผลจำนวนทั้งหมดของ UP1 Table
+ทดสอบการแสดงผลตารางแบบ 3 รายการ ต่อ 1 หน้า
     Open Browser    http://up1-table.herokuapp.com/
     Title Should Be    Demo
-    Element Should Contain    xpath=/html/body/div/ul/li/a    Show ${TOTAL} items
+
 
 *** Keywords ***

@@ -1,7 +1,24 @@
 *** Settings ***
 
+Library    Selenium2Library
+
 *** Variables ***
+${URL}    http://up1-table.herokuapp.com/
 
 *** Testcases ***
+check color
+	Open Browser    ${URL}
+	${status}=    Get Table Cell    xpath=//*[@id="demo"]/table    2    5
+	Should Be Equal    ${status}    Active
+	${class}=    Get Element Attribute    xpath=//*[@id="demo"]/table/tbody/tr[1]/td[5]/span@class
+	Should Be Equal As Strings    ${class}    status-metro status-active
+
+	${status}=    Get Table Cell    xpath=//*[@id="demo"]/table    3    5
+	Should Be Equal    ${status}    Disabled
+	${class}=    Get Element Attribute    xpath=//*[@id="demo"]/table/tbody/tr[2]/td[5]/span@class 
+	Should Be Equal As Strings    ${class}    status-metro status-disabled
+
+	#Close Browser
 
 *** Keywords ***
+

@@ -1,0 +1,15 @@
+*** Setting ***
+Library    Selenium2Library
+
+
+*** Variables ***
+
+
+
+*** Test Cases ***
+ตรวจสอบปุ่มหน้าที่ 4
+	Open Browser    http://up1-table.herokuapp.com/
+	
+
+
+*** Key Words ***
