@@ -1,10 +1,16 @@
 *** Settings ***
+
 Library    Selenium2Library
 
 *** Variables ***
+${URL}    http://up1-table.herokuapp.com/
 
 *** Testcases ***
 check color
-	Open Browser    https://www.facebook.com/
+	Open Browser    ${URL}
+	${status}=    Get Table Cell    xpath=//*[@id="demo"]/table    2    5
+	Should Be Equal    ${status}    Active
+	Close Browser
 
 *** Keywords ***
+
