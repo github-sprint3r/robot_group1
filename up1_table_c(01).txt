@@ -1,4 +1,7 @@
 *** Settings ***
+Documentation    ทดสอบการแสดงผลของ UP1 Table
+Libraly    Selenium2Libraly
+
 
 *** Variables ***
 
