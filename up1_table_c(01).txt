@@ -8,6 +8,6 @@ ${URL}    http://up1-table.herokuapp.com/
 
 *** Testcases ***
 ทดสอบระบบ UP1 Table
-
+    Open Browser    http://up1-table.herokuapp.com/
 
 *** Keywords ***
