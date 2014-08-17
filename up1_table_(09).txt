@@ -9,6 +9,14 @@ Library    Selenium2Library
 *** Test Cases ***
 ตรวจสอบปุ่มหน้าที่ 4
 	Open Browser    http://up1-table.herokuapp.com/
+	Click Element    xpath=//*[@class='pagination pagination-centered']/ul/li/a[@data-page='3']
+
+	${ElementString} =    Get Element Attribute    xpath=//*[@class='pagination pagination-centered']/ul/li[7]@class
+	Should Contain    ${ElementString}    disabled
+
+	${ElementString} =    Get Element Attribute    xpath=//*[@class='pagination pagination-centered']/ul/li[8]@class
+	Should Contain    ${ElementString}    disabled
+
 	
 
 
