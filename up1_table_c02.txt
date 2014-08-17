@@ -6,7 +6,9 @@ Library     Selenium2Library
 
 *** Test cases ***
 Test header of table
-	Open Browser    http://www.google.com
+	Open Browser    http://up1-table.herokuapp.com/
+	Table Cell Should Contain   xpath=//div[@id='demo']/table    1    1    First Name
+	Close Browser
 
 
 *** Keyword ****
