@@ -10,6 +10,6 @@ ${URL}    http://up1-table.herokuapp.com/
 ทดสอบการแสดงผลตารางแบบ 3 รายการ ต่อ 1 หน้า
     Open Browser    http://up1-table.herokuapp.com/
     Title Should Be    Demo
-
-
+    Xpath Should Match X Times   //tbody/tr[@style='display: table-row;']    3   
+    
 *** Keywords ***
