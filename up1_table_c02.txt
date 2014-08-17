@@ -1,0 +1,12 @@
+*** Setting ***
+Library     Selenium2Library
+
+*** Variable ***
+
+
+*** Test cases ***
+Test header of table
+	Open Browser    http://www.google.com
+
+
+*** Keyword ****
