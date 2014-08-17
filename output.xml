@@ -1,41 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20140817 10:52:25.689" generator="Robot 2.8.5 (Python 2.7.8 on darwin)">
-<suite source="/Users/admin/Programming/up1_table/robot_group1/up1_table_c02.txt" id="s1" name="Up1 Table C02">
-<test id="s1-t1" name="Test header of table">
+<robot generated="20140817 11:24:44.030" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
+<suite source="C:\Users\Avatar\Documents\GitHub\robot_group1\up1_table_02.txt" id="s1" name="Up1 Table 02">
+<test id="s1-t1" name="ทดสอบการแสดงผลตารางแบบ 3 รายการ ต่อ 1 หน้า">
 <kw type="kw" name="Selenium2Library.Open Browser">
 <doc>Opens a new browser instance to given URL.</doc>
 <arguments>
 <arg>http://up1-table.herokuapp.com/</arg>
 </arguments>
-<msg timestamp="20140817 10:52:25.906" level="INFO">Opening browser 'firefox' to base url 'http://up1-table.herokuapp.com/'</msg>
-<status status="PASS" endtime="20140817 10:52:34.095" starttime="20140817 10:52:25.905"></status>
+<msg timestamp="20140817 11:24:44.254" level="INFO">Opening browser 'firefox' to base url 'http://up1-table.herokuapp.com/'</msg>
+<status status="PASS" endtime="20140817 11:24:51.778" starttime="20140817 11:24:44.253"></status>
 </kw>
-<kw type="kw" name="Selenium2Library.Table Cell Should Contain">
-<doc>Verifies that a certain cell in a table contains `expected`.</doc>
+<kw type="kw" name="Selenium2Library.Title Should Be">
+<doc>Verifies that current page title equals `title`.</doc>
 <arguments>
-<arg>xpath=//div[@id='demo']/table</arg>
-<arg>1</arg>
-<arg>1</arg>
-<arg>First Name</arg>
+<arg>Demo</arg>
 </arguments>
-<msg timestamp="20140817 10:52:34.173" level="INFO">Cell contains First Name.</msg>
-<status status="PASS" endtime="20140817 10:52:34.173" starttime="20140817 10:52:34.097"></status>
+<msg timestamp="20140817 11:24:51.797" level="INFO">Page title is 'Demo'.</msg>
+<status status="PASS" endtime="20140817 11:24:51.797" starttime="20140817 11:24:51.779"></status>
 </kw>
-<kw type="kw" name="Selenium2Library.Close Browser">
-<doc>Closes the current browser.</doc>
+<kw type="teardown" name="Selenium2Library.Close All Browsers">
+<doc>Closes all open browsers and resets the browser cache.</doc>
 <arguments>
 </arguments>
-<status status="PASS" endtime="20140817 10:52:34.221" starttime="20140817 10:52:34.173"></status>
+<status status="PASS" endtime="20140817 11:24:52.046" starttime="20140817 11:24:51.798"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20140817 10:52:34.221" critical="yes" starttime="20140817 10:52:25.904"></status>
+<status status="PASS" endtime="20140817 11:24:52.048" critical="yes" starttime="20140817 11:24:44.249"></status>
 </test>
-<doc></doc>
+<doc>ทดสอบการแสดงผลของ UP1 Table</doc>
 <metadata>
 </metadata>
-<status status="PASS" endtime="20140817 10:52:34.222" starttime="20140817 10:52:25.690"></status>
+<status status="PASS" endtime="20140817 11:24:52.052" starttime="20140817 11:24:44.030"></status>
 </suite>
 <statistics>
 <total>
@@ -45,7 +42,7 @@
 <tag>
 </tag>
 <suite>
-<stat fail="0" pass="1" id="s1" name="Up1 Table C02">Up1 Table C02</stat>
+<stat fail="0" pass="1" id="s1" name="Up1 Table 02">Up1 Table 02</stat>
 </suite>
 </statistics>
 <errors>
