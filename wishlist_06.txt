@@ -20,6 +20,10 @@ Resource         resources/wishlist_resource.txt
     Get List Items    id=wishlist
     Select From List By Value    id=booklist    1
     Click Button    id=import
+    Select From List By Value    id=booklist    2
+    Click Button    id=import
+
+
 
 
 *** Keywords ***
