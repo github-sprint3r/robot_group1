@@ -1,0 +1,47 @@
+*** Settings ***
+#Documentation    ค้นหาจาก google
+Library    Selenium2Library
+#Test Teardown    Set Selenium Speed    10 second
+#Test Teardown     Close All Browsers
+Suite Teardown     before closed
+Resource           ./resources/wishlist_resource.txt
+
+*** Variables ***
+${URL}    http://book-wish-list.herokuapp.com/wishlist.html
+
+
+*** Testcases ***
+
+Select_one_book
+
+	#select item
+	[Tags]                  wishlist
+
+	Open Browser      ${URL}
+
+	Page Should Contain     หนังสือที่มีขาย
+	Page Should Contain     หนังสือที่อยากได้
+
+
+
+	#then
+	Element Should Be Enabled      save
+
+	Element Should Contain         xpath=//ul[@id='booklist']/li     Agile for PMO
+	Click Element                  import
+
+	lement Should Contain         xpath=//ul[@id='booklist']/li[1]     ${BOOK}
+
+	Element Should Contain         xpath=//ul[@id='wishlist']/li     Agile for PMO
+
+
+	Click Element                  save
+	Element Should Contain         xpath=//ul[@id='savelist']/li     Agile for PMO
+
+
+
+*** Keywords ***
+
+before closed
+	Set Selenium Speed    1 second
+	#Close All Browsers

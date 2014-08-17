@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Selenium2Library
-Resource         wishlist_resource.txt
+Resource         resources/wishlist_resource.txt
 
 
 
@@ -9,9 +9,12 @@ Resource         wishlist_resource.txt
 
 *** Testcases ***
 ทดสอบ Add Book จำนวน 5 เล่ม
+
     Open Browser    ${URL}
     Title Should Be    Wish List
-    Page Should Contain Element    id=labelbooklist
+    Page Should Contain Element    id=booklist
+
+
 
 
 *** Keywords ***
