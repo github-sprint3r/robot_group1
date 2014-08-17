@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    ทดสอบการแสดงผลของ UP1 Table
 Test Teardown    Close All Browsers
-Resource         resource.txt
+Resource         resources/resource.txt
 
 *** Variables ***
 ${TOTAL}    11
