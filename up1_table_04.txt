@@ -1,30 +1,39 @@
 *** Settings ***
+Documentation    ตรวจสอบรูปแบบวันเดือนปี
+Suite Setup     setup browser
 Library    Selenium2Library
 Library    String
 Library    Collections
-Test Teardown    Close All Browsers
+Suite Teardown    Close All Browsers
 
 *** Variables ***
 ${URL}    http://up1-table.herokuapp.com
 
 *** Testcases ***
-check format date row1
-	${birth date}=    get date from screen    1
-	check day    ${birth date}
-	check month    ${birth date}
-	check year    ${birth date}
 
-check format date row2
-	${birth date}=    get date from screen    2
-	check day    ${birth date}
-	check month    ${birth date}
-	check year    ${birth date}
+check format date
+	[Template]    check format date
+	#-------------#
+	#     Row     #
+	#-------------#
+		1
+		2
+		3
 
 *** Keywords ***
+setup browser
+     Open Browser    ${URL}
+     Maximize Browser Window
+
+check format date
+	[Arguments]    ${row}
+	${birth date}=    get date from screen    ${row}
+	check day    ${birth date}
+	check month    ${birth date}
+	check year    ${birth date}
+
 get date from screen
 	[Arguments]    ${row}
-	Open Browser    ${URL}
-	Maximize Browser Window
 	${birth date}=     Get Text    xpath=//table/tbody/tr[${row}]/td[4]
 	[Return]    ${birth date}
 
@@ -39,7 +48,7 @@ check month
 	[Arguments]    ${birth date}
 	${listOfBirthDate}=    Split String    ${birth date}   separator=${SPACE}
 	${month}=    Get From List    ${listOfBirthDate}    1
-	@{ListMonth}=    Create List    Jan    Feb  Mar   Apr   May   Jun   Oct
+	@{ListMonth}=    Create List    Jan    Feb  Mar   Apr   May   Jun   July   Aug   Sep   Oct   Nov   Dec
 	List Should Contain Value    ${ListMonth}    ${month}    msg=month incorrect
 
 check year
@@ -47,4 +56,3 @@ check year
 	${listOfBirthDate}=    Split String    ${birth date}   separator=${SPACE}
 	${year}=    Get From List    ${listOfBirthDate}    2
 	Length Should Be    ${year}    4    msg=Year incorrect
-	#Log    \n Printvalue ${year}    console=True
