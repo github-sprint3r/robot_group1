@@ -1,7 +1,7 @@
 *** Settings ***
 #Documentation    ค้นหาจาก google
 Library    Selenium2Library
-#Test Teardown     before closed
+Suite Teardown     before closed
 
 *** Variables ***
 ${URL}    http://up1-table.herokuapp.com
