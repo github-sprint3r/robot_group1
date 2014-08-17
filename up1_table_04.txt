@@ -1,0 +1,11 @@
+*** Settings ***
+Library    Selenium2Library
+Test Teardown    Close All Browsers
+*** Variables ***
+${URL}    http://up1-table.herokuapp.com
+*** Testcases ***
+check format date
+	check date
+*** Keywords ***
+check date
+	Open Browser    ${URL}
