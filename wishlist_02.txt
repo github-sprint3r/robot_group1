@@ -4,10 +4,10 @@ Library    Selenium2Library
 #Test Teardown    Set Selenium Speed    10 second
 #Test Teardown     Close All Browsers
 Suite Teardown     before closed
-Resource           /resources/wishlist_resource.txt
+Resource           ./resources/wishlist_resource.txt
 
 *** Variables ***
-${URL}    http://www.google.com
+${URL}    http://book-wish-list.herokuapp.com/wishlist.html
 
 
 *** Testcases ***
@@ -30,6 +30,8 @@ Select_one_book
 	Element Should Contain         xpath=//ul[@id='booklist']/li     Agile for PMO
 	Click Element                  import
 
+	lement Should Contain         xpath=//ul[@id='booklist']/li[1]     ${BOOK}
+
 	Element Should Contain         xpath=//ul[@id='wishlist']/li     Agile for PMO
 
 
@@ -42,4 +44,4 @@ Select_one_book
 
 before closed
 	Set Selenium Speed    1 second
-	Close All Browsers
+	#Close All Browsers
