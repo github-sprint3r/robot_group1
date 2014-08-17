@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Selenium2Library
-Test Teardown    Close All Browsers
+#Test Teardown    Close All Browsers
 *** Variables ***
 ${URL}    http://up1-table.herokuapp.com
 *** Testcases ***
@@ -9,3 +9,7 @@ check format date
 *** Keywords ***
 check date
 	Open Browser    ${URL}
+	Maximize Browser Window
+	${birth date}=     Get Text    xpath=//table/tbody/tr[1]/td[4]
+	#Should Be Equal    ${birth date}    22 Jun 1972
+	Log    \n DateScreen ${birth date}    console=True
