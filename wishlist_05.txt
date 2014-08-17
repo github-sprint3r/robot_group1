@@ -1,2 +1,31 @@
 *** Setting ***
-Library 
+Library    Selenium2Library
+Suite Setup    Open Browser
+Suit Teardown    Close Browser
+
+*** Variable ***
+${BROWSER}    firefox
+
+
+
+*** Test cases ***
+Test after select 4 books
+	Open Browser    ${URL}    ${BROWSER}
+	Get Selected List Value    3
+	Click Button    import
+	Get Selected List Value    5
+	Click Button    import
+	Get Selected List Value    2
+	Click Button    import    1
+
+
+	Element Should Contain    xpath=//select[@id='wishlist']/option[1]
+
+
+
+	Element Should Be Enabled    save
+
+
+
+
+*** Keyword ***
