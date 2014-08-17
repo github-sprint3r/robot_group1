@@ -39,7 +39,7 @@ Select_one_book
 
 
 	Click Element                  save
-	Element Should Contain         xpath=//ul[@id='savelist']/li        Agile for PMO
+	Element Should Contain         xpath=//ul[@id='savelist']/li      Agile for PMO
 
 
 
