@@ -1,7 +1,10 @@
 *** Setting ***
 Library    Selenium2Library
 Suite Setup    Open Browser
-Suit Teardown    Close Browser
+Suite Teardown    Close Browser
+
+Resource     resources/wishlist_resource.txt
+
 
 *** Variable ***
 ${BROWSER}    firefox
@@ -20,7 +23,8 @@ Test after select 4 books
 	Click Button    import    1
 
 
-	Element Should Contain    xpath=//select[@id='wishlist']/option[1]
+	#FOR    ${BookID}    IN    @{BOOKS}
+	#Element Should Contain    xpath=//select[@id='wishlist']/option[1]
 
 
 
