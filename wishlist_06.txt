@@ -15,6 +15,6 @@ Resource         resources/wishlist_resource.txt
     Page Should Contain Element    id=booklist
     Get List Items     id=booklist
     Select From List By Value    id=booklist    5
-
+    Click Button    id=import
 
 *** Keywords ***
