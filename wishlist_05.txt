@@ -1,4 +1,5 @@
 *** Setting ***
+Documents   Test select 4 books
 Library    Selenium2Library
 #Suite Setup    Open Browser
 #Suite Teardown    Close Browser
@@ -32,12 +33,23 @@ Test after select 4 books
 
 
 
+
+
+
 	#FOR    ${BookID}    IN    @{BOOKS}
-	#Element Should Contain    xpath=//select[@id='wishlist']/option[1]
+	Element Should Contain    xpath=//select[@id='wishlist']/option[1]    @{BOOKS}[3]
+	Element Should Contain    xpath=//select[@id='wishlist']/option[1]    @{BOOKS}[5]
+	Element Should Contain    xpath=//select[@id='wishlist']/option[1]    @{BOOKS}[2]
+	Element Should Contain    xpath=//select[@id='wishlist']/option[1]    @{BOOKS}[1]
 
 
 
 	Element Should Be Enabled    save
+
+
+
+
+
 	Close Browser
 
 
