@@ -9,7 +9,7 @@ ${URL}    http://up1-table.herokuapp.com/
 ${TOTAL}    11
 
 *** Testcases ***
-ทดสอบระบบ UP1 Table
+ทดสอบการแสดงผลจำนวนทั้งหมดของ UP1 Table
     Open Browser    http://up1-table.herokuapp.com/
     Title Should Be    Demo
     Element Should Contain    xpath=/html/body/div/ul/li/a    Show ${TOTAL} items

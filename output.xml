@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20140817 11:12:25.319" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
+<robot generated="20140817 11:18:18.840" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
 <suite source="C:\Users\Avatar\Documents\GitHub\robot_group1\up1_table_c(01).txt" id="s1" name="Up1 Table C(01)">
-<test id="s1-t1" name="ทดสอบระบบ UP1 Table">
+<test id="s1-t1" name="ทดสอบการแสดงผลจำนวนทั้งหมดของ UP1 Table">
 <kw type="kw" name="Selenium2Library.Open Browser">
 <doc>Opens a new browser instance to given URL.</doc>
 <arguments>
 <arg>http://up1-table.herokuapp.com/</arg>
 </arguments>
-<msg timestamp="20140817 11:12:25.529" level="INFO">Opening browser 'firefox' to base url 'http://up1-table.herokuapp.com/'</msg>
-<status status="PASS" endtime="20140817 11:12:33.017" starttime="20140817 11:12:25.529"></status>
+<msg timestamp="20140817 11:18:19.051" level="INFO">Opening browser 'firefox' to base url 'http://up1-table.herokuapp.com/'</msg>
+<status status="PASS" endtime="20140817 11:18:26.248" starttime="20140817 11:18:19.051"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Title Should Be">
 <doc>Verifies that current page title equals `title`.</doc>
 <arguments>
 <arg>Demo</arg>
 </arguments>
-<msg timestamp="20140817 11:12:33.057" level="INFO">Page title is 'Demo'.</msg>
-<status status="PASS" endtime="20140817 11:12:33.058" starttime="20140817 11:12:33.019"></status>
+<msg timestamp="20140817 11:18:26.280" level="INFO">Page title is 'Demo'.</msg>
+<status status="PASS" endtime="20140817 11:18:26.280" starttime="20140817 11:18:26.251"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Element Should Contain">
 <doc>Verifies element identified by `locator` contains text `expected`.</doc>
@@ -24,24 +24,24 @@
 <arg>xpath=/html/body/div/ul/li/a</arg>
 <arg>Show ${TOTAL} items</arg>
 </arguments>
-<msg timestamp="20140817 11:12:33.061" level="INFO">Verifying element 'xpath=/html/body/div/ul/li/a' contains text 'Show 11 items'.</msg>
-<status status="PASS" endtime="20140817 11:12:33.131" starttime="20140817 11:12:33.058"></status>
+<msg timestamp="20140817 11:18:26.281" level="INFO">Verifying element 'xpath=/html/body/div/ul/li/a' contains text 'Show 11 items'.</msg>
+<status status="PASS" endtime="20140817 11:18:26.371" starttime="20140817 11:18:26.281"></status>
 </kw>
 <kw type="teardown" name="Selenium2Library.Close All Browsers">
 <doc>Closes all open browsers and resets the browser cache.</doc>
 <arguments>
 </arguments>
-<status status="PASS" endtime="20140817 11:12:33.594" starttime="20140817 11:12:33.131"></status>
+<status status="PASS" endtime="20140817 11:18:27.028" starttime="20140817 11:18:26.373"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20140817 11:12:33.595" critical="yes" starttime="20140817 11:12:25.527"></status>
+<status status="PASS" endtime="20140817 11:18:27.029" critical="yes" starttime="20140817 11:18:19.047"></status>
 </test>
 <doc>ทดสอบการแสดงผลของ UP1 Table</doc>
 <metadata>
 </metadata>
-<status status="PASS" endtime="20140817 11:12:33.599" starttime="20140817 11:12:25.320"></status>
+<status status="PASS" endtime="20140817 11:18:27.031" starttime="20140817 11:18:18.841"></status>
 </suite>
 <statistics>
 <total>
