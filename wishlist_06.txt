@@ -11,7 +11,7 @@ Resource         resources/wishlist_resource.txt
 *** Testcases ***
 ทดสอบ Add Book จำนวน 5 เล่ม
 
-[Tags]    wishlist
+    [Tags]    wishlist
 
     Open Browser    ${URL}
     Title Should Be    Wish List
