@@ -1,7 +1,15 @@
 *** Settings ***
+Documentation    ทดสอบการแสดงผลของ UP1 Table
+Library    Selenium2Library
+Test Teardown    Close All Browsers
 
 *** Variables ***
+${URL}    http://up1-table.herokuapp.com/
 
 *** Testcases ***
+ทดสอบการแสดงผลตารางแบบ 3 รายการ ต่อ 1 หน้า
+    Open Browser    http://up1-table.herokuapp.com/
+    Title Should Be    Demo
+
 
 *** Keywords ***
