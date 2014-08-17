@@ -1,38 +1,39 @@
 *** Setting ***
 Library    Selenium2Library
-#Test Teardown    Close All Browsers
+Test Teardown    Close All Browsers
 
 *** Variables ***
 ${UrlUT}    http://up1-table.herokuapp.com/
-${ElementPaging2UT}    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[4]/a
 
 *** Testcases ***
 Paging
     [Template]    Assert Paging
     2    4
-
+    3    4
 
 *** Keywords ***
 Assert Paging
     [Arguments]    ${targetPage}    ${totalPage}
     Open Browser    ${UrlUT}
-    Wait Until Page Contains Element    ${ElementPaging2UT}
-    Click Element    ${ElementPaging2UT}
+    ${targetPage}=    Evaluate    ${targetPage}+2
+    Wait Until Page Contains Element    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${targetPage}]/a
+    Click Element    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${targetPage}]/a
+    ${lastPageIndex}=    Evaluate    2+${totalPage}+2
+    ${nextPageIndex}=    Evaluate    ${lastPageIndex}-1
+    #Log  ${lastPageIndex}    console=True
 
     ${liFirstPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[1]@class
     Should Not Contain    ${liFirstPageAttr}    disabled
     ${liPrevPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[2]@class
     Should Not Contain    ${liPrevPageAttr}    disabled
-    ${liLastPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[8]@class
-    Should Not Contain    ${liLastPageAttr}    disabled
-    ${liNextPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[7]@class
-    Should Not Contain    ${liNextPageAttr}    disabled
 
-    ${liPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[3]@class
-    Should Not Contain    ${liPageAttr}    active
-    ${liPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[4]@class
-    Should Contain    ${liPageAttr}    active
-    ${liPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[5]@class
-    Should Not Contain    ${liPageAttr}    active
-    ${liPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[6]@class
-    Should Not Contain    ${liPageAttr}    active
+    ${maxPage}=    Evaluate    ${lastPageIndex}-1
+    :FOR    ${INDEX}    IN RANGE    3    ${maxPage}
+    \    ${liPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${INDEX}]@class
+    \    Run Keyword If    ${INDEX} == ${targetPage}    Should Contain    ${liPageAttr}    active
+    \    ...    ELSE    Should Not Contain    ${liPageAttr}    active
+
+    ${liNextPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${nextPageIndex}]@class
+    Should Not Contain    ${liNextPageAttr}    disabled
+    ${liLastPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${lastPageIndex}]@class
+    Should Not Contain    ${liLastPageAttr}    disabled
