@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Selenium2Library
-Resource         wishlist_resource.txt
+Resource         resources/wishlist_resource.txt
 
 
 
@@ -13,8 +13,8 @@ Resource         wishlist_resource.txt
     Open Browser    ${URL}
     Title Should Be    Wish List
     Page Should Contain Element    id=booklist
-
-
+    Get List Items     id=booklist
+    Select From List By Value    id=booklist    5
 
 
 *** Keywords ***
