@@ -1,0 +1,19 @@
+*** Settings ***
+Library           Selenium2Library
+Suite Setup       Open Browser    http://up1-table.herokuapp.com/
+Test Teardown     Go To    http://up1-table.herokuapp.com/
+Suite Teardown    Close All Browsers
+
+
+*** Testcases ***
+Get total item
+	${all item}    Get Text   xpath=//span
+	Should Be True    '${all item} == 11'
+
+Check first page
+	${current page}    Get Text   xpath=//li[@class='footable-page active']/a
+	Should Be True    '${current page} == 1'
+
+First page of table
+	${count}=    Get Matching Xpath Count    xpath=//tr[@style='display: table-row;']
+	Should Be True    '${count} == 3'
