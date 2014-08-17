@@ -1,8 +1,9 @@
 *** Settings ***
 Library    Selenium2Library
+Resource         wishlist_resource.txt
 
 *** Variables ***
-${URL}    
+
 
 *** Testcases ***
 ทดสอบ Add Book จำนวน 5 เล่ม
