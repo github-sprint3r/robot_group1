@@ -29,22 +29,24 @@ Select_one_book
 	#then
 	Element Should Be Disabled      save
 
-	Element Should Contain         xpath=//select[@id='booklist']/option[1]        Agile for PMO
+	Element Should Contain         xpath=//select[@id='booklist']/option[1]        @{BOOKS}[1]
 	Click Element                  import
+	Element Should Contain         xpath=//select[@id='booklist']/option[2]        @{BOOKS}[3]
+
 	Element Should Be Enabled      save
 
 	#Element Should Contain         xpath=//select[@id='booklist']/option[1]     Agile for PMO
 
-	Element Should Contain         xpath=//select[@id='wishlist']/option[1]     Agile for PMO
+	Element Should Contain         xpath=//select[@id='wishlist']/option[1]     @{BOOKS}[1]
 
 
 	Click Element                  save
-	Element Should Contain         xpath=//ul[@id='savelist']/li      Agile for PMO
+	Element Should Contain         xpath=//ul[@id='savelist']/li      @{BOOKS}[1]
 
 
 
 *** Keywords ***
 
 before closed
-	Set Selenium Speed    1 second
+	Set Selenium Speed    5 second
 	Close All Browsers
