@@ -8,6 +8,13 @@ Library     Selenium2Library
 Test header of table
 	Open Browser    http://up1-table.herokuapp.com/
 	Table Cell Should Contain   xpath=//div[@id='demo']/table    1    1    First Name
+	Table Cell Should Contain   xpath=//div[@id='demo']/table    1    2    Last Name
+	#Table Header Should Contain    xpath=//div[@id='demo']/table     Job Title
+	${VAL}    Get Table Cell    xpath=//div[@id='demo']/table    1   3    console=yes
+	Log     ${VAL}    console=yes
+	#Table Cell Should Contain   xpath=//div[@id='demo']/table    1    3    Job Title
+	#Table Cell Should Contain   xpath=//div[@id='demo']/table    1    4    Birthdate
+	#Table Cell Should Contain   xpath=//div[@id='demo']/table    1    5    Status
 	Close Browser
 
 
