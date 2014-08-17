@@ -1,18 +1,19 @@
 *** Settings ***
 #Documentation    ค้นหาจาก google
 Library    Selenium2Library
-Test Teardown     before closed
+#Test Teardown     before closed
 
 *** Variables ***
 ${URL}    http://up1-table.herokuapp.com
 ${CURRENTPAGE}    1
+${LASTPAGE}       4
 
 
 *** Testcases ***
 
 ##===== template=========
 
-current_page1_check
+CurrentPage1Check
 
 	Open Browser    ${URL}
 	Element Text Should Be     xpath=//li[@class='footable-page active']    1    ${CURRENTPAGE}
@@ -31,7 +32,23 @@ current_page1_check
 	Page Should Contain Link    xpath=//li[@class='footable-page-arrow'][1]/a     contains
 	Page Should Contain Link    xpath=//li[@class='footable-page-arrow'][2]/a     contains
 
+ThenClickOther
+	Element Text Should Be     xpath=//li[@class='footable-page'][1]    2
+	Element Text Should Be     xpath=//li[@class='footable-page'][2]    3
+	Element Text Should Be     xpath=//li[@class='footable-page'][3]    4
+
+ThenClickNextPage
+
 	Click Element     xpath=//li[@class='footable-page-arrow'][1]/a
+	Set Selenium Speed    1
+	Element Text Should Be     xpath=//li[@class='footable-page active']/a    2
+
+
+ThenClickLastPage
+
+	Click Element     xpath=//li[@class='footable-page-arrow'][4]/a
+	Set Selenium Speed    1
+	Element Text Should Be     xpath=//li[@class='footable-page active']/a    4
 
 
 
