@@ -1,5 +1,5 @@
 *** Settings ***
-#Documentation    ค้นหาจาก google
+Documentation    เลือกหนังสือหนึ่งเล่มนะจ๊ะ
 Library    Selenium2Library
 #Test Teardown    Set Selenium Speed    10 second
 #Test Teardown     Close All Browsers
@@ -7,7 +7,7 @@ Suite Teardown     before closed
 Resource           ./resources/wishlist_resource.txt
 
 *** Variables ***
-${URL}    http://book-wish-list.herokuapp.com/wishlist.php
+#${URL}    http://book-wish-list.herokuapp.com/wishlist.php
 
 
 *** Testcases ***
@@ -21,6 +21,8 @@ Select_one_book
 
 	Page Should Contain     หนังสือที่มีขาย
 	Page Should Contain     หนังสือที่อยากได้
+
+
 #//*[@id="booklist"]/option[1]
 
 
@@ -33,7 +35,7 @@ Select_one_book
 
 	#Element Should Contain         xpath=//select[@id='booklist']/option[1]     Agile for PMO
 
-	#Element Should Contain         xpath=//select[@id='booklist']/option[1]     Agile for PMO
+	Element Should Contain         xpath=//select[@id='wishlist']/option[1]     Agile for PMO
 
 
 	Click Element                  save

@@ -1,26 +1,27 @@
 *** Settings ***
-Documentation  ตรวจสอบการเลือกหนังสือ
+Documentation    ตรวจสอบการเลือกหนังสือ
 Library    Selenium2Library
 Library    Collections
-Resources    resources/wishlist_resource.txt
-
+Resource    resources/wishlist_resource.txt
 *** Testcases ***
 Choose Book List
 	[Tags]    wishlist
+	Open Browser    ${URL}
 	Select From List   id=booklist    2
 	Click Button       id=import
-	Select From List   id=booklist    4
+	Select From List   id=booklist    3
 	Click Button       id=import
 	Element Should Be Enabled    id=save
 
 	@{ListNonSelect}=    Get List Items     id=booklist
-	@{expectNonSelect}=    Create List    Agile for PMO    Mama cooking Secret    Somkiat.cc Cookbok
-	Lists Should Be Equal    @{ListNonSelect}    @{expectNonSelect}
+	@{expectNonSelect}=    Create List    Agile for PMO    Mama cooking Secret    Somkiat.cc Cookbook
+	Lists Should Be Equal    ${ListNonSelect}    ${expectNonSelect}
 
 	@{ListSelected}=    Get List Items     id=wishlist
 	@{actualSelected}=    Create List    Agile Retrospective    Refactering to Patterns
-	Lists Should Be Equal    @{ListSelected}    @{actualSelected}
-	Click Button    id=import
+	Lists Should Be Equal    ${ListSelected}    ${actualSelected}
+
+	Click Button    id=save
 
 	@{saveSelected}=    Get List Items     id=savelist
 	Lists Should Be Equal    @{saveSelected}    @{actualSelected}
