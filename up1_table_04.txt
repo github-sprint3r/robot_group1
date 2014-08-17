@@ -8,17 +8,24 @@ Test Teardown    Close All Browsers
 ${URL}    http://up1-table.herokuapp.com
 
 *** Testcases ***
-check format date
-	${birth date}=    get date from screen
+check format date row1
+	${birth date}=    get date from screen    1
+	check day    ${birth date}
+	check month    ${birth date}
+	check year    ${birth date}
+
+check format date row2
+	${birth date}=    get date from screen    2
 	check day    ${birth date}
 	check month    ${birth date}
 	check year    ${birth date}
 
 *** Keywords ***
 get date from screen
+	[Arguments]    ${row}
 	Open Browser    ${URL}
 	Maximize Browser Window
-	${birth date}=     Get Text    xpath=//table/tbody/tr[1]/td[4]
+	${birth date}=     Get Text    xpath=//table/tbody/tr[${row}]/td[4]
 	[Return]    ${birth date}
 
 check day
@@ -32,7 +39,7 @@ check month
 	[Arguments]    ${birth date}
 	${listOfBirthDate}=    Split String    ${birth date}   separator=${SPACE}
 	${month}=    Get From List    ${listOfBirthDate}    1
-	@{ListMonth}=    Create List    Jan    Feb  Mar   Apr   May   Jun
+	@{ListMonth}=    Create List    Jan    Feb  Mar   Apr   May   Jun   Oct
 	List Should Contain Value    ${ListMonth}    ${month}    msg=month incorrect
 
 check year
