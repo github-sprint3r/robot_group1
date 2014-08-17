@@ -7,7 +7,7 @@ Suite Teardown     before closed
 Resource           ./resources/wishlist_resource.txt
 
 *** Variables ***
-${URL}    http://book-wish-list.herokuapp.com/wishlist.html
+${URL}    http://book-wish-list.herokuapp.com/wishlist.php
 
 
 *** Testcases ***
@@ -21,22 +21,23 @@ Select_one_book
 
 	Page Should Contain     หนังสือที่มีขาย
 	Page Should Contain     หนังสือที่อยากได้
-
+#//*[@id="booklist"]/option[1]
 
 
 	#then
+	Element Should Be Disabled      save
+
+	Element Should Contain         xpath=//select[@id='booklist']/option[1]        Agile for PMO
+	Click Element                  import
 	Element Should Be Enabled      save
 
-	Element Should Contain         xpath=//ul[@id='booklist']/li     Agile for PMO
-	Click Element                  import
+	#Element Should Contain         xpath=//select[@id='booklist']/option[1]     Agile for PMO
 
-	lement Should Contain         xpath=//ul[@id='booklist']/li[1]     ${BOOK}
-
-	Element Should Contain         xpath=//ul[@id='wishlist']/li     Agile for PMO
+	#Element Should Contain         xpath=//select[@id='booklist']/option[1]     Agile for PMO
 
 
 	Click Element                  save
-	Element Should Contain         xpath=//ul[@id='savelist']/li     Agile for PMO
+	Element Should Contain         xpath=//ul[@id='savelist']/li        Agile for PMO
 
 
 
@@ -44,4 +45,4 @@ Select_one_book
 
 before closed
 	Set Selenium Speed    1 second
-	#Close All Browsers
+	Close All Browsers
