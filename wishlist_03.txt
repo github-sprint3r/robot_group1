@@ -1,0 +1,31 @@
+*** Settings ***
+Documentation    เลือกหนังสอ Refactering to Pattern และ Agile Retrospective ตามลำดับ
+Library    Selenium2Library
+Library    Collections
+Resource    resources/wishlist_resource.txt
+
+*** Variables ***
+
+*** Testcases ***
+ฺีัchoose Book
+	Open Browser    ${URL}
+	Select From List    id=booklist    4
+	Click Button    id=import
+	Element Should Contain    id=wishlist    Refactering to Patterns
+
+	Select From List    id=booklist    2
+	Click Button    id=import
+	Element Should Contain    id=wishlist    Agile Retrospective
+
+	@{expected list}=     Create List    Refactering to Patterns     Agile Retrospective
+
+	@{actual list}=    Get List Items    id=wishlist
+
+	Lists Should Be Equal    ${expected list}    ${actual list}
+
+	Click Button    id=save
+
+	Element Should Contain    id=savelist    Refactering to Patterns
+	Element Should Contain    id=savelist    Agile Retrospective
+
+*** Keywords ***
