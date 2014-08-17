@@ -6,6 +6,7 @@ Suite Teardown     before closed
 
 *** Variables ***
 ${URL}    http://up1-table.herokuapp.com
+${BROWSER}    ff
 ${CURRENTPAGE}    1
 ${LASTPAGE}       4
 
@@ -65,5 +66,5 @@ before closed
 
 
 Open Browser All
-	Open Browser    ${URL}    chrome
+	Open Browser    ${URL}    ${BROWSER}
 	Open Browser    ${URL}

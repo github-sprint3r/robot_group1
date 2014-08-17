@@ -1,0 +1,34 @@
+*** Settings ***
+#Documentation    ค้นหาจาก google
+Library    Selenium2Library
+#Test Teardown    Set Selenium Speed    10 second
+#Test Teardown     Close All Browsers
+Suite Teardown     before closed
+
+*** Variables ***
+${URL}    http://www.facebook.com
+
+
+*** Testcases ***
+
+Select_one_book
+
+	#select item
+	Page Should Contain     หนังสือที่มีขาย
+	Page Should Contain     หนังสือที่อยากได้
+
+
+
+	#then
+	Element Should Be Enabled      save
+
+
+	Element Should Contain
+
+
+
+*** Keywords ***
+
+before closed
+	Set Selenium Speed    1 second
+	Close All Browsers
