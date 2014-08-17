@@ -11,6 +11,8 @@ Resource         resources/wishlist_resource.txt
 *** Testcases ***
 ทดสอบ Add Book จำนวน 5 เล่ม
 
+[Tags]    wishlist
+
     Open Browser    ${URL}
     Title Should Be    Wish List
     Page Should Contain Element    id=booklist
@@ -19,6 +21,8 @@ Resource         resources/wishlist_resource.txt
     Click Button    id=import
     Get List Items    id=wishlist
     Select From List By Value    id=booklist    1
+    Click Button    id=import
+    Select From List By Value    id=booklist    2
     Click Button    id=import
     Select From List By Value    id=booklist    2
     Click Button    id=import
