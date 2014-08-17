@@ -12,6 +12,7 @@ check format date
 	${birth date}=    get date from screen
 	check day    ${birth date}
 	check month    ${birth date}
+	check year    ${birth date}
 
 *** Keywords ***
 get date from screen
@@ -33,4 +34,10 @@ check month
 	${month}=    Get From List    ${listOfBirthDate}    1
 	@{ListMonth}=    Create List    Jan    Feb  Mar   Apr   May   Jun
 	List Should Contain Value    ${ListMonth}    ${month}    msg=month incorrect
-	#Log    \n Printvalue @{ListMonth}    console=True
+
+check year
+	[Arguments]    ${birth date}
+	${listOfBirthDate}=    Split String    ${birth date}   separator=${SPACE}
+	${year}=    Get From List    ${listOfBirthDate}    2
+	Length Should Be    ${year}    4    msg=Year incorrect
+	#Log    \n Printvalue ${year}    console=True
