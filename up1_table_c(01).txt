@@ -1,14 +1,10 @@
 *** Settings ***
 Documentation    ทดสอบการแสดงผลของ UP1 Table
-Library    Selenium2Library
+Libraly    Selenium2Libraly
+
 
 *** Variables ***
-${URL}    http://up1-table.herokuapp.com/
 
 *** Testcases ***
-Open Up1 Table
-
-    Open Browser    http://up1-table.herokuapp.com/
-    Title Should Be    Demo
 
 *** Keywords ***
