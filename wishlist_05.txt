@@ -3,7 +3,7 @@ Library    Selenium2Library
 #Suite Setup    Open Browser
 #Suite Teardown    Close Browser
 
-Resource     resources/wishlist_resource.txt
+Resource    ./resources/wishlist_resource.txt
 
 
 *** Variable ***
@@ -15,12 +15,20 @@ ${BROWSER}    firefox
 Test after select 4 books
 	[Tags]	wishlist
 	Open Browser    ${URL}    ${BROWSER}
-	Get Selected List Value    3
+	Select From List By Value    booklist    3
 	Click Button    import
-	Get Selected List Value    5
+
+	#5
+	Select From List By Value    booklist    4
 	Click Button    import
-	Get Selected List Value    2
-	Click Button    import    1
+
+	#2
+	Select From List By Value    booklist    2
+	Click Button    import
+
+	#1
+	Select From List By Value    booklist    1
+	Click Button    import
 
 
 
@@ -29,8 +37,8 @@ Test after select 4 books
 
 
 
-	#Element Should Be Enabled    save
-
+	Element Should Be Enabled    save
+	Close Browser
 
 
 
