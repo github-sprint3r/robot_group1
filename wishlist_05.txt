@@ -1,7 +1,7 @@
 *** Setting ***
 Library    Selenium2Library
-Suite Setup    Open Browser
-Suite Teardown    Close Browser
+#Suite Setup    Open Browser
+#Suite Teardown    Close Browser
 
 Resource     resources/wishlist_resource.txt
 
@@ -23,12 +23,13 @@ Test after select 4 books
 	Click Button    import    1
 
 
+
 	#FOR    ${BookID}    IN    @{BOOKS}
 	#Element Should Contain    xpath=//select[@id='wishlist']/option[1]
 
 
 
-	Element Should Be Enabled    save
+	#Element Should Be Enabled    save
 
 
 
