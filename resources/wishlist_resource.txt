@@ -2,5 +2,5 @@
 Library          Selenium2Library
 
 *** Variables ***
-${URL}    http://book-wish-list.herokuapp.com/wishlist.html
+${URL}    http://book-wish-list.herokuapp.com/wishlist.php
 @{BOOKS} =    Create List    Agile for PMO    Agile Retrospetive    Mama Cooking Secret    Refactering to Patterns    Somkiat.cc Cookbook
