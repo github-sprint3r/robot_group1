@@ -1,4 +1,5 @@
 *** Settings ***
+Documentation    ทดสอบ Add Book จำนวน 5 เล่ม
 Library    Selenium2Library
 Resource         resources/wishlist_resource.txt
 
@@ -16,5 +17,9 @@ Resource         resources/wishlist_resource.txt
     Get List Items     id=booklist
     Select From List By Value    id=booklist    5
     Click Button    id=import
+    Get List Items    id=wishlist
+    Select From List By Value    id=booklist    1
+    Click Button    id=import
+
 
 *** Keywords ***
