@@ -38,16 +38,20 @@ Test after select 4 books
 
 	#FOR    ${BookID}    IN    @{BOOKS}
 	Element Should Contain    xpath=//select[@id='wishlist']/option[1]    @{BOOKS}[3]
-	Element Should Contain    xpath=//select[@id='wishlist']/option[1]    @{BOOKS}[5]
-	Element Should Contain    xpath=//select[@id='wishlist']/option[1]    @{BOOKS}[2]
-	Element Should Contain    xpath=//select[@id='wishlist']/option[1]    @{BOOKS}[1]
+	Element Should Contain    xpath=//select[@id='wishlist']/option[2]    @{BOOKS}[5]
+	Element Should Contain    xpath=//select[@id='wishlist']/option[3]    @{BOOKS}[2]
+	Element Should Contain    xpath=//select[@id='wishlist']/option[4]    @{BOOKS}[1]
 
 
 
 	Element Should Be Enabled    save
+	Click Button    save
 
 
-
+	Element Should Contain    xpath=//ul[@id='savelist']/li[1]    @{BOOKS}[3]
+	Element Should Contain    xpath=//ul[@id='savelist']/li[2]    @{BOOKS}[5]
+	Element Should Contain    xpath=//ul[@id='savelist']/li[3]    @{BOOKS}[2]
+	Element Should Contain    xpath=//ul[@id='savelist']/li[4]    @{BOOKS}[1]
 
 
 	Close Browser
