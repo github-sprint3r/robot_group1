@@ -1,7 +1,10 @@
 *** Settings ***
+Library    Selenium2Library
 
 *** Variables ***
 
 *** Testcases ***
+check color
+	Open Browser    https://www.facebook.com/
 
 *** Keywords ***
