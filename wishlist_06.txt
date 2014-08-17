@@ -26,7 +26,8 @@ Resource         resources/wishlist_resource.txt
     Click Button    id=import
     Select From List By Value    id=booklist    2
     Click Button    id=import
-
+    Select From List By Value    id=booklist    1
+    Click Button    id=import
 
 
 
