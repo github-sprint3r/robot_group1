@@ -1,14 +1,38 @@
 *** Setting ***
 Library    Selenium2Library
+#Test Teardown    Close All Browsers
 
 *** Variables ***
 ${UrlUT}    http://up1-table.herokuapp.com/
-${ElementUT}    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[4]/a
+${ElementPaging2UT}    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[4]/a
 
 *** Testcases ***
-Paging Begin Page 2
-    Open Browser  ${UrlUT}
-    Wait Until Page Contains Element  ${ElementUT}
-    Click Element  ${ElementUT}
+Paging
+    [Template]    Assert Paging
+    2    4
+
 
 *** Keywords ***
+Assert Paging
+    [Arguments]    ${targetPage}    ${totalPage}
+    Open Browser    ${UrlUT}
+    Wait Until Page Contains Element    ${ElementPaging2UT}
+    Click Element    ${ElementPaging2UT}
+
+    ${liFirstPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[1]@class
+    Should Not Contain    ${liFirstPageAttr}    disabled
+    ${liPrevPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[2]@class
+    Should Not Contain    ${liPrevPageAttr}    disabled
+    ${liLastPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[8]@class
+    Should Not Contain    ${liLastPageAttr}    disabled
+    ${liNextPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[7]@class
+    Should Not Contain    ${liNextPageAttr}    disabled
+
+    ${liPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[3]@class
+    Should Not Contain    ${liPageAttr}    active
+    ${liPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[4]@class
+    Should Contain    ${liPageAttr}    active
+    ${liPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[5]@class
+    Should Not Contain    ${liPageAttr}    active
+    ${liPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[6]@class
+    Should Not Contain    ${liPageAttr}    active
