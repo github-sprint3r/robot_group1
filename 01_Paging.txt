@@ -15,6 +15,7 @@ ${CURRENTPAGE}    1
 current_page_check
 
 	Open Browser    ${URL}
+	Element Text Should Be     xpath=//li[@class='footable-page active']    1    ${CURRENTPAGE}
 
 
 
