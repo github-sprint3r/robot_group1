@@ -10,6 +10,7 @@ ${BROWSER}    firefox
 
 *** Test cases ***
 Test after select 4 books
+	[Tags]	wishlist
 	Open Browser    ${URL}    ${BROWSER}
 	Get Selected List Value    3
 	Click Button    import
