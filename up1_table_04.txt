@@ -1,15 +1,28 @@
 *** Settings ***
 Library    Selenium2Library
-#Test Teardown    Close All Browsers
+Library    String
+Library    Collections
+Test Teardown    Close All Browsers
+
 *** Variables ***
 ${URL}    http://up1-table.herokuapp.com
+
 *** Testcases ***
 check format date
-	check date
+	${birth date}=    get date from screen
+	check day    ${birth date}
+
 *** Keywords ***
-check date
+get date from screen
 	Open Browser    ${URL}
 	Maximize Browser Window
 	${birth date}=     Get Text    xpath=//table/tbody/tr[1]/td[4]
-	#Should Be Equal    ${birth date}    22 Jun 1972
-	Log    \n DateScreen ${birth date}    console=True
+	[Return]    ${birth date}
+
+check day
+	[Arguments]    ${birth date}
+	${listOfBirthDate}=    Split String    ${birth date}   separator=${SPACE}
+	${day}=    Get From List    ${listOfBirthDate}    0
+	Convert To Integer    ${day}
+	Should Be True    1<${day}<=31    msg=date out of range
+	#Log    \n DateScreen ${day}    console=True
