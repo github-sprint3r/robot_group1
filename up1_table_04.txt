@@ -11,6 +11,7 @@ ${URL}    http://up1-table.herokuapp.com
 check format date
 	${birth date}=    get date from screen
 	check day    ${birth date}
+	check month    ${birth date}
 
 *** Keywords ***
 get date from screen
@@ -25,4 +26,11 @@ check day
 	${day}=    Get From List    ${listOfBirthDate}    0
 	Convert To Integer    ${day}
 	Should Be True    1<${day}<=31    msg=date out of range
-	#Log    \n DateScreen ${day}    console=True
+
+check month
+	[Arguments]    ${birth date}
+	${listOfBirthDate}=    Split String    ${birth date}   separator=${SPACE}
+	${month}=    Get From List    ${listOfBirthDate}    1
+	@{ListMonth}=    Create List    Jan    Feb  Mar   Apr   May   Jun
+	List Should Contain Value    ${ListMonth}    ${month}    msg=month incorrect
+	#Log    \n Printvalue @{ListMonth}    console=True
