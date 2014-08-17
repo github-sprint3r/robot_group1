@@ -11,5 +11,6 @@ ${URL}    http://up1-table.herokuapp.com/
 ทดสอบระบบ UP1 Table
     Open Browser    http://up1-table.herokuapp.com/
     Title Should Be    Demo
+    Element Should Contain    xpath=/html/body/div/ul/li/a    Show 11 items
 
 *** Keywords ***
